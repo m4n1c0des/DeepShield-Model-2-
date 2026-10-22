@@ -1,0 +1,135 @@
+{
+ "dataset": "FF++ C23 faces + extra real/AI-face datasets (mixed)",
+ "per_origin@val_thr": {
+  "extra:140k_real_and_fake_faces": {
+   "threshold": 0.763,
+   "auc": 0.9997,
+   "average_precision": 0.9997,
+   "accuracy": 0.996,
+   "balanced_accuracy": 0.996,
+   "precision": 0.9964,
+   "recall_fake": 0.9956,
+   "f1": 0.996,
+   "fpr": 0.0036,
+   "fnr": 0.0044,
+   "eer": 0.0044,
+   "confusion": {
+    "tn": 2242,
+    "fp": 8,
+    "fn": 10,
+    "tp": 2240
+   },
+   "n": 4500
+  },
+  "extra:stable_diffusion_dataaaaaaaaa": {
+   "n": 1351,
+   "note": "one class only",
+   "detection_rate@val_thr": 1.0
+  },
+  "ffpp": {
+   "threshold": 0.763,
+   "auc": 0.9765,
+   "average_precision": 0.9955,
+   "accuracy": 0.9207,
+   "balanced_accuracy": 0.9265,
+   "precision": 0.9876,
+   "recall_fake": 0.9183,
+   "f1": 0.9517,
+   "fpr": 0.0653,
+   "fnr": 0.0817,
+   "eer": 0.0751,
+   "confusion": {
+    "tn": 3695,
+    "fp": 258,
+    "fn": 1835,
+    "tp": 20617
+   },
+   "n": 26405
+  }
+ },
+ "split": "identity-disjoint",
+ "seed": 42,
+ "val_threshold_youden": 0.7630205154418945,
+ "best_epoch": 4,
+ "best_val_auc": 0.9864,
+ "test@0.5": {
+  "threshold": 0.5,
+  "auc": 0.9858,
+  "average_precision": 0.9963,
+  "accuracy": 0.9428,
+  "balanced_accuracy": 0.9414,
+  "precision": 0.9849,
+  "recall_fake": 0.9436,
+  "f1": 0.9638,
+  "fpr": 0.0608,
+  "fnr": 0.0564,
+  "eer": 0.0587,
+  "confusion": {
+   "tn": 5826,
+   "fp": 377,
+   "fn": 1469,
+   "tp": 24584
+  },
+  "n": 32256
+ },
+ "test@val_threshold": {
+  "threshold": 0.763,
+  "auc": 0.9858,
+  "average_precision": 0.9963,
+  "accuracy": 0.9346,
+  "balanced_accuracy": 0.9432,
+  "precision": 0.9891,
+  "recall_fake": 0.9292,
+  "f1": 0.9582,
+  "fpr": 0.0429,
+  "fnr": 0.0708,
+  "eer": 0.0587,
+  "confusion": {
+   "tn": 5937,
+   "fp": 266,
+   "fn": 1845,
+   "tp": 24208
+  },
+  "n": 32256
+ },
+ "real_false_positive_rate@val_thr": 0.0429,
+ "per_method": {
+  "DeepFakeDetection": {
+   "n": 3104,
+   "detection_rate@val_thr": 0.9423
+  },
+  "Deepfakes": {
+   "n": 3873,
+   "detection_rate@val_thr": 0.9571
+  },
+  "Face2Face": {
+   "n": 3944,
+   "detection_rate@val_thr": 0.9348
+  },
+  "FaceShifter": {
+   "n": 3750,
+   "detection_rate@val_thr": 0.9427
+  },
+  "FaceSwap": {
+   "n": 4033,
+   "detection_rate@val_thr": 0.9417
+  },
+  "NeuralTextures": {
+   "n": 3748,
+   "detection_rate@val_thr": 0.7911
+  },
+  "extra_140k_real_and_fake_faces_fake": {
+   "n": 2250,
+   "detection_rate@val_thr": 0.9956
+  },
+  "extra_stable_diffusion_dataaaaaaaaa_fake": {
+   "n": 1351,
+   "detection_rate@val_thr": 1.0
+  }
+ },
+ "caveats": [
+  "Single-dataset result: FF++ C23 only. Cross-dataset performance (e.g. Celeb-DF) is expected to be lower and must be measured separately.",
+  "Frames of one video are highly correlated; effective sample size is the number of videos, not images.",
+  "MIXED mode: extra datasets have no identity ids, so they are split by image; near-duplicate images across splits cannot be excluded. Judge generalisation on Celeb-DF / the live-site images, not on the extra-data test numbers."
+ ]
+}

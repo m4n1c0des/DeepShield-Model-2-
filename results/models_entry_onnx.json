@@ -1,0 +1,39 @@
+{
+  "vit_b16": {
+    "file": "vit_b16/model.onnx",
+    "framework": "onnx",
+    "sha256": "ab68d55467196c380d7d468b9e384d37c83af86c8a7a47076b65f8d211dc117c",
+    "input_size": 224,
+    "normalization": "minus_one_one",
+    "output_mode": "logits",
+    "fake_index": 1,
+    "num_outputs": 2,
+    "interpolation": "bilinear",
+    "threshold": 0.763,
+    "threshold_version": "youden-val-v1",
+    "version": "2.0.0",
+    "training": {
+      "dataset": "FF++ C23 (gradientvoyager/faceforensics-c23-extracted-faces-100k) + mixed real/AI face datasets (see results/eval_report.json for per-origin details)",
+      "dataset_version": "kaggle",
+      "date": "2026-10-13",
+      "parameters": {
+        "arch": "timm vit_base_patch16_224 (ImageNet pretrained)",
+        "img": 224,
+        "epochs_run": 6,
+        "batch": 32,
+        "lr_backbone": 2e-05,
+        "lr_head": 0.0003,
+        "weight_decay": 0.01,
+        "label_smoothing": 0.05,
+        "split": "identity-disjoint 70/15/15",
+        "seed": 42
+      },
+      "metrics": {
+        "test_auc": 0.9858,
+        "test_balanced_accuracy": 0.9432,
+        "test_eer": 0.0587,
+        "scope": "mixed FF++ + extra test (see per_origin in eval_report.json)"
+      }
+    }
+  }
+}

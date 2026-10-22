@@ -1,0 +1,4 @@
+# Model weights are >100 MB: GitHub rejects normal files that large. Track them with Git LFS.
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.pth  filter=lfs diff=lfs merge=lfs -text
+*.pt   filter=lfs diff=lfs merge=lfs -text
