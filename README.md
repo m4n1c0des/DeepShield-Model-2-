@@ -4,6 +4,12 @@ An ONNX image classifier for the DeepShield platform, fine-tuned from an ImageNe
 
 The model expects a 224 x 224 RGB image and returns two logits; output index `1` is the fake class. It is an experimental forensic aid, not proof of authenticity. Review [MODEL_CARD.md](MODEL_CARD.md) and the evaluation caveats before using the scores.
 
+## Research pipeline
+
+![DeepShield ViT-B/16 mixed-data training pipeline and model architecture](docs/research-pipeline.png)
+
+*Mixed-data training, ViT-B/16 architecture, ONNX export, and held-out test metrics.*
+
 ## Structure
 ```
 vit_b16/
@@ -17,7 +23,7 @@ vit_b16/
 ├── demo/                  app.py (Gradio upload-and-see-verdict demo) + requirements.txt
 ├── weights/               vit_b16.onnx + models_entry_onnx.json  (Git LFS)
 ├── results/               eval_report.json and curves.png
-└── docs/                  model management notes
+└── docs/                  model management notes and research pipeline diagram
 ```
 
 ## Quick start
